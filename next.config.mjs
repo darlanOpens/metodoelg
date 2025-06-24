@@ -2,6 +2,7 @@
 const nextConfig = {
   basePath: '/metodoelg',
   assetPrefix: '/metodoelg',
+  output: 'standalone',
   eslint: {
     ignoreDuringBuilds: true,
   },

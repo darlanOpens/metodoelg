@@ -11,7 +11,7 @@ export default function LandingPage() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
-            src="/Background.png"
+            src="/metodoelg/Background.png"
             alt="Background"
             fill
             className="object-cover object-top"
@@ -33,7 +33,7 @@ export default function LandingPage() {
               <div className="space-y-4">
                 <div className="mb-2">
                   <Image
-                    src="/metodoELGhorizontal.png"
+                    src="/metodoelg/metodoELGhorizontal.png"
                     alt="Método ELG"
                     width={600}
                     height={180}
