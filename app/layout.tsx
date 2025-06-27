@@ -10,9 +10,21 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: "v0 App",
-  description: "Created with v0",
-  generator: "v0.dev",
+  title: "Método ELG - Como Dobrar sua Receita Sem Gastar Mais em Tráfego",
+  description: "Aula gratuita e ao vivo com Douglas Conrad. Descubra como transformar sua base de clientes em fonte constante de faturamento, recompra e indicação com o Método ELG.",
+  keywords: "método elg, douglas conrad, crescimento empresarial, retenção de clientes, aumento de receita, experience-led growth",
+  authors: [{ name: "Douglas Conrad" }],
+  openGraph: {
+    title: "Método ELG - Como Dobrar sua Receita Sem Gastar Mais em Tráfego",
+    description: "Aula gratuita e ao vivo com Douglas Conrad. Transforme sua base de clientes em fonte constante de faturamento.",
+    type: "website",
+    locale: "pt_BR",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Método ELG - Como Dobrar sua Receita Sem Gastar Mais em Tráfego",
+    description: "Aula gratuita e ao vivo com Douglas Conrad. Transforme sua base de clientes em fonte constante de faturamento.",
+  },
 }
 
 export default function RootLayout({
@@ -21,7 +33,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="pt-BR" className={inter.variable}>
       <body>{children}</body>
     </html>
   )
