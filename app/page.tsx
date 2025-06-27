@@ -41,11 +41,10 @@ export default function LandingPage() {
                   />
                 </div>
                 <h2 className="text-3xl lg:text-4xl font-bold leading-tight">
-                  💰 Como Dobrar sua Receita Sem Gastar Mais em Tráfego
+                  💰 Como a IA vai Dobrar sua Receita Sem Gastar Mais em Tráfego
                 </h2>
                 <p className="text-lg text-gray-300 leading-relaxed">
-                  Descubra com o Douglas Conrad como transformar sua base de clientes em fonte constante de faturamento,
-                  recompra e indicação – com uma estratégia simples, prática e comprovada.
+                Descubra com o Douglas Conrad como transformar sua base de clientes em fonte constante de faturamento, recompra e indicação usando todo poder da IA e uma estratégia consolidada.
                 </p>
               </div>
 

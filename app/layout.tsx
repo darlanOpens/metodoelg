@@ -10,19 +10,19 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: "Método ELG - Como Dobrar sua Receita Sem Gastar Mais em Tráfego",
+  title: "Método ELG - Como a IA vai Dobrar sua Receita Sem Gastar Mais em Tráfego",
   description: "Aula gratuita e ao vivo com Douglas Conrad. Descubra como transformar sua base de clientes em fonte constante de faturamento, recompra e indicação com o Método ELG.",
   keywords: "método elg, douglas conrad, crescimento empresarial, retenção de clientes, aumento de receita, experience-led growth",
   authors: [{ name: "Douglas Conrad" }],
   openGraph: {
-    title: "Método ELG - Como Dobrar sua Receita Sem Gastar Mais em Tráfego",
+    title: "Método ELG - Como a IA vai Dobrar sua Receita Sem Gastar Mais em Tráfego",
     description: "Aula gratuita e ao vivo com Douglas Conrad. Transforme sua base de clientes em fonte constante de faturamento.",
     type: "website",
     locale: "pt_BR",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Método ELG - Como Dobrar sua Receita Sem Gastar Mais em Tráfego",
+    title: "Método ELG - Como a IA vai Dobrar sua Receita Sem Gastar Mais em Tráfego",
     description: "Aula gratuita e ao vivo com Douglas Conrad. Transforme sua base de clientes em fonte constante de faturamento.",
   },
 }
