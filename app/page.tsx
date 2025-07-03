@@ -1,6 +1,7 @@
 import { ArrowRight, Calendar, Clock, MapPin, CheckCircle, Gift, AlertTriangle, Target, User } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
+import { LeadForm } from "@/components/LeadForm"
 import Image from "next/image"
 
 export default function LandingPage() {
@@ -69,10 +70,12 @@ export default function LandingPage() {
                 </div>
               </div>
 
-              <Button className="bg-gradient-to-r from-[#F9A826] to-[#FFDE59] text-black font-bold py-4 px-8 rounded-full text-lg hover:brightness-110 transition-all duration-300 transform hover:scale-105">
-                🔒 Quero garantir minha vaga agora
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
+              <a href="#inscricao">
+                <Button className="bg-gradient-to-r from-[#F9A826] to-[#FFDE59] text-black font-bold py-4 px-8 rounded-full text-lg hover:brightness-110 transition-all duration-300 transform hover:scale-105">
+                  🔒 Quero garantir minha vaga agora
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Button>
+              </a>
 
               <p className="text-sm text-gray-400">
                 👉 <em>Vagas limitadas – não haverá retransmissão</em>
@@ -165,12 +168,21 @@ export default function LandingPage() {
             </div>
 
             <div className="text-center mt-12">
-              <Button className="bg-gradient-to-r from-[#F9A826] to-[#FFDE59] text-black font-bold py-4 px-8 rounded-full text-lg hover:brightness-110 transition-all duration-300 transform hover:scale-105">
-                👉 Sim, quero aprender como crescer sem depender só de tráfego
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
+              <a href="#inscricao">
+                <Button className="bg-gradient-to-r from-[#F9A826] to-[#FFDE59] text-black font-bold py-4 px-8 rounded-full text-lg hover:brightness-110 transition-all duration-300 transform hover:scale-105">
+                  👉 Sim, quero aprender como crescer sem depender só de tráfego
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Button>
+              </a>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Lead Form Section */}
+      <section id="inscricao" className="py-16 bg-gradient-to-r from-[#F9A826]/5 to-[#FFDE59]/5">
+        <div className="container mx-auto px-6">
+          <LeadForm />
         </div>
       </section>
 
@@ -263,10 +275,12 @@ export default function LandingPage() {
             <p className="text-[#F9A826] font-bold text-lg mt-8">*Só para quem estiver presente ao vivo.*</p>
 
             <div className="mt-12">
-              <Button className="bg-gradient-to-r from-[#F9A826] to-[#FFDE59] text-black font-bold py-4 px-8 rounded-full text-lg hover:brightness-110 transition-all duration-300 transform hover:scale-105">
-                🔒 Garantir minha vaga na aula
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
+              <a href="#inscricao">
+                <Button className="bg-gradient-to-r from-[#F9A826] to-[#FFDE59] text-black font-bold py-4 px-8 rounded-full text-lg hover:brightness-110 transition-all duration-300 transform hover:scale-105">
+                  🔒 Garantir minha vaga na aula
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Button>
+              </a>
               <p className="text-red-400 font-semibold mt-4">
                 ⚠️ <strong>Não haverá replay.</strong> Essa é sua única chance de participar.
               </p>
@@ -313,10 +327,12 @@ export default function LandingPage() {
             </div>
 
             <div className="mt-12">
-              <Button className="bg-gradient-to-r from-[#F9A826] to-[#FFDE59] text-black font-bold py-4 px-8 rounded-full text-lg hover:brightness-110 transition-all duration-300 transform hover:scale-105">
-                ✅ Quero participar da aula e transformar minha base em receita
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
+              <a href="#inscricao">
+                <Button className="bg-gradient-to-r from-[#F9A826] to-[#FFDE59] text-black font-bold py-4 px-8 rounded-full text-lg hover:brightness-110 transition-all duration-300 transform hover:scale-105">
+                  ✅ Quero participar da aula e transformar minha base em receita
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Button>
+              </a>
             </div>
           </div>
         </div>
@@ -333,10 +349,12 @@ export default function LandingPage() {
               <p className="text-xl font-bold text-[#F9A826]">Não haverá replay. A decisão é agora.</p>
             </div>
 
-            <Button className="bg-gradient-to-r from-[#F9A826] to-[#FFDE59] text-black font-bold py-6 px-12 rounded-full text-xl hover:brightness-110 transition-all duration-300 transform hover:scale-105">
-              👉 Sim, quero participar
-              <ArrowRight className="ml-3 w-6 h-6" />
-            </Button>
+            <a href="#inscricao">
+              <Button className="bg-gradient-to-r from-[#F9A826] to-[#FFDE59] text-black font-bold py-6 px-12 rounded-full text-xl hover:brightness-110 transition-all duration-300 transform hover:scale-105">
+                👉 Sim, quero participar
+                <ArrowRight className="ml-3 w-6 h-6" />
+              </Button>
+            </a>
           </div>
         </div>
       </section>
