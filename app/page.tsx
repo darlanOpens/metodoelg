@@ -26,7 +26,7 @@ export default function LandingPage() {
             src="/metodoelg/Background.png"
             alt="Background"
             fill
-            className="object-contain object-left-top lg:object-top"
+            className="object-cover object-left-top lg:object-top"
             priority
           />
           <div className="absolute inset-0"></div>
