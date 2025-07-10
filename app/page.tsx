@@ -15,7 +15,7 @@ export default function LandingPage() {
             src="/metodoelg/Background.png"
             alt="Background"
             fill
-            className="object-cover object-right-top lg:object-top"
+            className="object-cover object-left-top lg:object-top"
             priority
           />
           <div className="absolute inset-0"></div>
@@ -72,7 +72,8 @@ export default function LandingPage() {
 
               <a href="#inscricao" className="block pt-6">
                 <Button className="w-full lg:w-auto bg-gradient-to-r from-[#F9A826] to-[#FFDE59] text-black font-bold py-4 px-8 rounded-full text-lg hover:brightness-110 transition-all duration-300 transform hover:scale-105">
-                  🔒 Quero garantir minha vaga agora
+                  <span className="lg:hidden">🔒 Garantir vaga</span>
+                  <span className="hidden lg:inline">🔒 Quero garantir minha vaga agora</span>
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </a>
