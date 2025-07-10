@@ -1,4 +1,15 @@
-import { ArrowRight, Calendar, Clock, MapPin, CheckCircle, Gift, AlertTriangle, Target, User } from "lucide-react"
+import {
+  ArrowRight,
+  Calendar,
+  Clock,
+  MapPin,
+  CheckCircle,
+  Gift,
+  AlertTriangle,
+  Target,
+  Crown,
+  Zap,
+} from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { LeadForm } from "@/components/LeadForm"
@@ -215,37 +226,72 @@ export default function LandingPage() {
       </section>
 
       {/* Mentor Section */}
-      <section className="py-16">
+      <section className="py-16 bg-[#0C1211]">
         <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl lg:text-4xl font-bold text-center mb-12">🎓 Sobre o mentor</h2>
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-3xl lg:text-4xl font-bold text-center mb-12 text-white">Sobre o mentor</h2>
 
-            <Card className="bg-[#1E1E1E] border-[#F9A826]/30">
-              <CardContent className="p-8">
-                <div className="flex items-start gap-6">
-                  <div className="flex-shrink-0">
-                    <div className="w-20 h-20 bg-gradient-to-r from-[#F9A826] to-[#FFDE59] rounded-full flex items-center justify-center">
-                      <User className="w-10 h-10 text-black" />
-                    </div>
-                  </div>
-                  <div className="space-y-4">
-                    <h3 className="text-2xl font-bold text-[#F9A826]">Douglas Conrad</h3>
-                    <p className="text-gray-300 leading-relaxed">
-                      Especialista em crescimento com base de clientes e experiência do cliente.
-                      <br />
-                      Empreendedor há mais de 20 anos, fundador da Opens,
-                      <br />
-                      <strong className="text-[#F9A826]">mentor no G4 Educação e em diversas empresas B2B e B2C</strong>
-                      <br />
-                      que estão construindo crescimento sustentável com foco em relacionamento.
-                    </p>
-                    <blockquote className="text-lg italic text-[#F9A826] border-l-4 border-[#F9A826] pl-4">
-                      "Cliente que alcança sucesso vira promotor. Cliente que só recebe entrega vira fantasma."
-                    </blockquote>
+            <div className="grid lg:grid-cols-5 gap-12 items-start">
+              {/* Left Column - Image */}
+              <div className="lg:col-span-2 relative">
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
+                  <div className="bg-gradient-to-r from-[#F9A826] to-[#FFDE59] text-black text-sm font-semibold px-4 py-1 rounded-full flex items-center gap-2">
+                    <Crown className="w-4 h-4" />
+                    <span>MENTOR</span>
                   </div>
                 </div>
-              </CardContent>
-            </Card>
+                <div className="relative p-1 rounded-2xl bg-gradient-to-br from-[#F9A826]/50 via-[#F9A826]/20 to-transparent">
+                  <div className="bg-[#0C1211] p-2 rounded-[14px]">
+                    <Image
+                      src="/placeholder-user.jpg"
+                      alt="Douglas Conrad"
+                      width={500}
+                      height={700}
+                      className="rounded-lg grayscale"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Column - Content */}
+              <div className="lg:col-span-3 space-y-8 text-gray-300">
+                <div>
+                  <h3 className="text-4xl lg:text-5xl font-bold text-white tracking-wider">DOUGLAS CONRAD</h3>
+                  <p className="text-lg text-[#F9A826] font-medium">Criador do Método Experience-Led Growth</p>
+                  <p className="text-lg">Mentor do G4 Educação</p>
+                </div>
+
+                <div className="bg-[#1E1E1E]/80 border border-gray-700/50 rounded-lg p-6 space-y-4">
+                  <h4 className="flex items-center gap-2 text-xl font-bold text-white">
+                    <Zap className="w-5 h-5 text-[#F9A826]" />
+                    SOBRE O E.L.G.A.
+                  </h4>
+                  <p>
+                    E.L.G.A. é o hub de mentoria premium da Opens. Conduzido por Douglas Conrad, o programa reúne
+                    clientes selecionados em sessões exclusivas de 60 minutos ao vivo.
+                  </p>
+                  <p>
+                    A cada edição, Douglas revela estratégias que convertem o atendimento em receita previsível —
+                    unindo tecnologia, processos e desenvolvimento humano.
+                  </p>
+                  <blockquote className="text-lg italic text-[#F9A826] border-l-4 border-[#F9A826] pl-4 my-4">
+                    "Participe, mergulhe em diálogos de alto nível e transforme sua experiência de cliente em
+                    legado de crescimento."
+                  </blockquote>
+                </div>
+
+                <div className="grid sm:grid-cols-2 gap-6">
+                  <div className="bg-[#1E1E1E]/80 border border-gray-700/50 rounded-lg p-4">
+                    <h5 className="font-bold text-[#F9A826]">SESSÕES EXCLUSIVAS</h5>
+                    <p className="text-sm">60 minutos ao vivo com clientes selecionados</p>
+                  </div>
+                  <div className="bg-[#1E1E1E]/80 border border-gray-700/50 rounded-lg p-4">
+                    <h5 className="font-bold text-[#F9A826]">RECEITA PREVISÍVEL</h5>
+                    <p className="text-sm">Estratégias que convertem atendimento em resultados</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
