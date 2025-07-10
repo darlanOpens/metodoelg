@@ -70,7 +70,7 @@ export default function LandingPage() {
                 </div>
               </div>
 
-              <a href="#inscricao">
+              <a href="#inscricao" className="block pt-6">
                 <Button className="bg-gradient-to-r from-[#F9A826] to-[#FFDE59] text-black font-bold py-4 px-8 rounded-full text-lg hover:brightness-110 transition-all duration-300 transform hover:scale-105">
                   🔒 Quero garantir minha vaga agora
                   <ArrowRight className="ml-2 w-5 h-5" />
