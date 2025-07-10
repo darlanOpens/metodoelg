@@ -4,7 +4,13 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { ArrowRight, Users } from "lucide-react"
 
@@ -17,6 +23,15 @@ interface FormData {
   site: string
 }
 
+const formatPhoneNumber = (value: string) => {
+  const cleaned = value.replace(/\D/g, "")
+  if (cleaned.length <= 10) {
+    return cleaned.replace(/(\d{2})(\d{4})(\d{0,4})/, "($1) $2-$3").trim()
+  } else {
+    return cleaned.replace(/(\d{2})(\d{5})(\d{0,4})/, "($1) $2-$3").trim()
+  }
+}
+
 export function LeadForm() {
   const [formData, setFormData] = useState<FormData>({
     nome: "",
@@ -24,8 +39,12 @@ export function LeadForm() {
     telefone: "",
     empresa: "",
     segmento: "",
-    site: ""
+    site: "",
   })
+  const [formErrors, setFormErrors] = useState<{
+    email?: string
+    telefone?: string
+  }>({})
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   const segmentosOptions = [
@@ -40,42 +59,96 @@ export function LeadForm() {
     "Alimentação",
     "Varejo",
     "Indústria",
-    "Outros"
+    "Outros",
   ]
 
-  const handleInputChange = (field: keyof FormData, value: string) => {
-    setFormData(prev => ({
-      ...prev,
-      [field]: value
-    }))
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { id, value } = e.target
+    const field = id as keyof FormData
+
+    if (field === "telefone") {
+      const formattedValue = formatPhoneNumber(value)
+      setFormData((prev) => ({ ...prev, [field]: formattedValue }))
+    } else {
+      setFormData((prev) => ({ ...prev, [field]: value }))
+    }
+
+    if (formErrors[field as keyof typeof formErrors]) {
+      setFormErrors((prev) => ({ ...prev, [field]: undefined }))
+    }
+  }
+
+  const handleSelectChange = (value: string) => {
+    setFormData((prev) => ({ ...prev, segmento: value }))
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+
+    // Validação
+    const currentErrors: { email?: string; telefone?: string } = {}
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!formData.email || !emailRegex.test(formData.email)) {
+      currentErrors.email = "Por favor, insira um email válido."
+    }
+    const cleanPhone = formData.telefone.replace(/\D/g, "")
+    if (!cleanPhone || !(cleanPhone.length === 10 || cleanPhone.length === 11)) {
+      currentErrors.telefone = "Telefone inválido. Use (XX) XXXXX-XXXX."
+    }
+
+    if (Object.keys(currentErrors).length > 0) {
+      setFormErrors(currentErrors)
+      alert(
+        "Por favor, corrija os erros no formulário:\n" +
+          Object.values(currentErrors).filter(Boolean).join("\n"),
+      )
+      return
+    }
+    setFormErrors({})
     setIsSubmitting(true)
 
+    // TODO: Adicionar coleta de dados UTM aqui, se necessário
+
+    const n8nBody = {
+      form_id: "metodo_elg_2307",
+      form_title: "Inscrição Método ELG - 23/07",
+      form_data: {
+        ...formData,
+        telefone: cleanPhone,
+      },
+      timestamp: new Date().toISOString().replace("T", " ").substring(0, 19),
+      user_agent: typeof window !== "undefined" ? navigator.userAgent : "",
+      page_url: typeof window !== "undefined" ? window.location.href : "",
+    }
+
     try {
-      // Aqui você pode integrar com sua API de captura de leads
-      console.log("Dados do formulário:", formData)
-      
-      // Simular envio
-      await new Promise(resolve => setTimeout(resolve, 1000))
-      
-      // Redirect ou mostrar sucesso
-      alert("Inscrição realizada com sucesso! Você receberá mais informações em breve.")
-      
-      // Limpar formulário
-      setFormData({
-        nome: "",
-        email: "",
-        telefone: "",
-        empresa: "",
-        segmento: "",
-        site: ""
-      })
-    } catch (error) {
-      console.error("Erro ao enviar formulário:", error)
-      alert("Erro ao processar sua inscrição. Tente novamente.")
+      const response = await fetch(
+        "https://n8n.opens.com.br/webhook/hubspot-form",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(n8nBody),
+        },
+      )
+
+      if (response.ok) {
+        if (typeof window !== "undefined") {
+          window.location.href = "/metodoelg/inscricao-confirmada"
+        }
+      } else {
+        const errorText = await response.text()
+        console.error(
+          `Erro HTTP do Webhook: ${response.status} - ${response.statusText}. Detalhes: ${errorText}`,
+        )
+        throw new Error(`Erro HTTP: ${response.status} - ${response.statusText}`)
+      }
+    } catch (err) {
+      console.error("Erro ao enviar formulário:", err)
+      alert(
+        "Houve um problema ao processar sua inscrição. Por favor, tente novamente.",
+      )
     } finally {
       setIsSubmitting(false)
     }
@@ -94,7 +167,7 @@ export function LeadForm() {
           Preencha os dados abaixo para se inscrever na aula gratuita
         </p>
       </CardHeader>
-      
+
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="grid md:grid-cols-2 gap-4">
@@ -107,7 +180,7 @@ export function LeadForm() {
                 type="text"
                 placeholder="Seu nome"
                 value={formData.nome}
-                onChange={(e) => handleInputChange("nome", e.target.value)}
+                onChange={handleInputChange}
                 required
                 className="bg-[#2A2A2A] border-gray-600 text-white placeholder:text-gray-400 focus:border-[#F9A826] focus:ring-[#F9A826]"
               />
@@ -122,10 +195,13 @@ export function LeadForm() {
                 type="email"
                 placeholder="seu@email.com"
                 value={formData.email}
-                onChange={(e) => handleInputChange("email", e.target.value)}
+                onChange={handleInputChange}
                 required
                 className="bg-[#2A2A2A] border-gray-600 text-white placeholder:text-gray-400 focus:border-[#F9A826] focus:ring-[#F9A826]"
               />
+              {formErrors.email && (
+                <p className="text-red-400 text-xs mt-1">{formErrors.email}</p>
+              )}
             </div>
           </div>
 
@@ -139,10 +215,14 @@ export function LeadForm() {
                 type="tel"
                 placeholder="(11) 99999-9999"
                 value={formData.telefone}
-                onChange={(e) => handleInputChange("telefone", e.target.value)}
+                onChange={handleInputChange}
                 required
                 className="bg-[#2A2A2A] border-gray-600 text-white placeholder:text-gray-400 focus:border-[#F9A826] focus:ring-[#F9A826]"
+                maxLength={15}
               />
+              {formErrors.telefone && (
+                <p className="text-red-400 text-xs mt-1">{formErrors.telefone}</p>
+              )}
             </div>
 
             <div className="space-y-2">
@@ -154,7 +234,7 @@ export function LeadForm() {
                 type="text"
                 placeholder="Nome da sua empresa"
                 value={formData.empresa}
-                onChange={(e) => handleInputChange("empresa", e.target.value)}
+                onChange={handleInputChange}
                 required
                 className="bg-[#2A2A2A] border-gray-600 text-white placeholder:text-gray-400 focus:border-[#F9A826] focus:ring-[#F9A826]"
               />
@@ -168,7 +248,7 @@ export function LeadForm() {
               </Label>
               <Select
                 value={formData.segmento}
-                onValueChange={(value) => handleInputChange("segmento", value)}
+                onValueChange={handleSelectChange}
                 required
               >
                 <SelectTrigger className="bg-[#2A2A2A] border-gray-600 text-white focus:border-[#F9A826] focus:ring-[#F9A826]">
@@ -197,7 +277,7 @@ export function LeadForm() {
                 type="url"
                 placeholder="https://suaempresa.com.br"
                 value={formData.site}
-                onChange={(e) => handleInputChange("site", e.target.value)}
+                onChange={handleInputChange}
                 className="bg-[#2A2A2A] border-gray-600 text-white placeholder:text-gray-400 focus:border-[#F9A826] focus:ring-[#F9A826]"
               />
             </div>
