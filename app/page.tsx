@@ -243,7 +243,7 @@ export default function LandingPage() {
                 <div className="relative p-1 rounded-2xl bg-gradient-to-br from-[#F9A826]/50 via-[#F9A826]/20 to-transparent">
                   <div className="bg-[#0C1211] p-2 rounded-[14px]">
                     <Image
-                      src="/placeholder-user.jpg"
+                      src="/metodoelg/douglas_conrad.png"
                       alt="Douglas Conrad"
                       width={500}
                       height={700}
