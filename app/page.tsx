@@ -181,8 +181,11 @@ export default function LandingPage() {
 
             <div className="text-center mt-12">
               <a href="#inscricao">
-                <Button className="bg-gradient-to-r from-[#F9A826] to-[#FFDE59] text-black font-bold py-4 px-8 rounded-full text-lg hover:brightness-110 transition-all duration-300 transform hover:scale-105">
-                  👉 Sim, quero aprender como crescer sem depender só de tráfego
+                <Button className="w-full lg:w-auto bg-gradient-to-r from-[#F9A826] to-[#FFDE59] text-black font-bold py-4 px-8 rounded-full text-lg hover:brightness-110 transition-all duration-300 transform hover:scale-105">
+                  <span className="lg:hidden">👉 Quero aprender</span>
+                  <span className="hidden lg:inline">
+                    👉 Sim, quero aprender como crescer sem depender só de tráfego
+                  </span>
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </a>
@@ -327,8 +330,9 @@ export default function LandingPage() {
 
             <div className="mt-12">
               <a href="#inscricao">
-                <Button className="bg-gradient-to-r from-[#F9A826] to-[#FFDE59] text-black font-bold py-4 px-8 rounded-full text-lg hover:brightness-110 transition-all duration-300 transform hover:scale-105">
-                  🔒 Garantir minha vaga na aula
+                <Button className="w-full lg:w-auto bg-gradient-to-r from-[#F9A826] to-[#FFDE59] text-black font-bold py-4 px-8 rounded-full text-lg hover:brightness-110 transition-all duration-300 transform hover:scale-105">
+                  <span className="lg:hidden">🔒 Garantir vaga</span>
+                  <span className="hidden lg:inline">🔒 Garantir minha vaga na aula</span>
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </a>
@@ -379,8 +383,9 @@ export default function LandingPage() {
 
             <div className="mt-12">
               <a href="#inscricao">
-                <Button className="bg-gradient-to-r from-[#F9A826] to-[#FFDE59] text-black font-bold py-4 px-8 rounded-full text-lg hover:brightness-110 transition-all duration-300 transform hover:scale-105">
-                  ✅ Quero participar da aula e transformar minha base em receita
+                <Button className="w-full lg:w-auto bg-gradient-to-r from-[#F9A826] to-[#FFDE59] text-black font-bold py-4 px-8 rounded-full text-lg hover:brightness-110 transition-all duration-300 transform hover:scale-105">
+                  <span className="lg:hidden">✅ Quero participar</span>
+                  <span className="hidden lg:inline">✅ Quero participar da aula e transformar minha base em receita</span>
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </a>
@@ -401,7 +406,7 @@ export default function LandingPage() {
             </div>
 
             <a href="#inscricao">
-              <Button className="bg-gradient-to-r from-[#F9A826] to-[#FFDE59] text-black font-bold py-6 px-12 rounded-full text-xl hover:brightness-110 transition-all duration-300 transform hover:scale-105">
+              <Button className="w-full lg:w-auto bg-gradient-to-r from-[#F9A826] to-[#FFDE59] text-black font-bold py-6 px-12 rounded-full text-xl hover:brightness-110 transition-all duration-300 transform hover:scale-105">
                 👉 Sim, quero participar
                 <ArrowRight className="ml-3 w-6 h-6" />
               </Button>
