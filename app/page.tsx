@@ -53,13 +53,13 @@ export default function LandingPage() {
                 <div className="flex items-center gap-3">
                   <Calendar className="w-5 h-5 text-[#F9A826]" />
                   <span>
-                    <strong>Data:</strong> [Insira a data]
+                    <strong>Data:</strong> 23 de Julho
                   </span>
                 </div>
                 <div className="flex items-center gap-3">
                   <Clock className="w-5 h-5 text-[#F9A826]" />
                   <span>
-                    <strong>Duração:</strong> 1h30
+                    <strong>Horário:</strong> 19:00 (Horário de Brasília)
                   </span>
                 </div>
                 <div className="flex items-center gap-3">
@@ -300,21 +300,21 @@ export default function LandingPage() {
                 <CardContent className="p-6 text-center">
                   <Calendar className="w-8 h-8 text-[#F9A826] mx-auto mb-3" />
                   <h3 className="font-bold text-white mb-2">Data</h3>
-                  <p className="text-gray-300">[Inserir data]</p>
+                  <p className="text-gray-300">23 de Julho</p>
                 </CardContent>
               </Card>
               <Card className="bg-[#0C1211] border-[#F9A826]/30">
                 <CardContent className="p-6 text-center">
                   <Clock className="w-8 h-8 text-[#F9A826] mx-auto mb-3" />
-                  <h3 className="font-bold text-white mb-2">Duração</h3>
-                  <p className="text-gray-300">1h30</p>
+                  <h3 className="font-bold text-white mb-2">Horário</h3>
+                  <p className="text-gray-300">19:00</p>
                 </CardContent>
               </Card>
               <Card className="bg-[#0C1211] border-[#F9A826]/30">
                 <CardContent className="p-6 text-center">
                   <MapPin className="w-8 h-8 text-[#F9A826] mx-auto mb-3" />
                   <h3 className="font-bold text-white mb-2">Formato</h3>
-                  <p className="text-gray-300">Online e ao vivo</p>
+                  <p className="text-gray-300">Online, ao vivo (1h30)</p>
                 </CardContent>
               </Card>
               <Card className="bg-[#0C1211] border-[#F9A826]/30">
