@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -14,6 +14,7 @@ import {
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { ArrowRight, Users } from "lucide-react"
 
+// Interfaces
 interface FormData {
   nome: string
   email: string
@@ -23,6 +24,15 @@ interface FormData {
   site: string
 }
 
+interface UtmData {
+  utm_source: string
+  utm_medium: string
+  utm_campaign: string
+  utm_term: string
+  utm_content: string
+}
+
+// Função para formatar número de telefone
 const formatPhoneNumber = (value: string) => {
   const cleaned = value.replace(/\D/g, "")
   if (cleaned.length <= 10) {
@@ -33,6 +43,7 @@ const formatPhoneNumber = (value: string) => {
 }
 
 export function LeadForm() {
+  // Estados
   const [formData, setFormData] = useState<FormData>({
     nome: "",
     email: "",
@@ -41,12 +52,32 @@ export function LeadForm() {
     segmento: "",
     site: "",
   })
+  const [utmData, setUtmData] = useState<UtmData>({
+    utm_source: "",
+    utm_medium: "",
+    utm_campaign: "",
+    utm_term: "",
+    utm_content: "",
+  })
   const [formErrors, setFormErrors] = useState<{
     email?: string
     telefone?: string
   }>({})
   const [isSubmitting, setIsSubmitting] = useState(false)
 
+  // Efeito para capturar UTMs
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search)
+    setUtmData({
+      utm_source: urlParams.get("utm_source") || "",
+      utm_medium: urlParams.get("utm_medium") || "",
+      utm_campaign: urlParams.get("utm_campaign") || "",
+      utm_term: urlParams.get("utm_term") || "",
+      utm_content: urlParams.get("utm_content") || "",
+    })
+  }, [])
+
+  // Opções do Select
   const segmentosOptions = [
     "E-commerce",
     "Consultoria",
@@ -62,6 +93,7 @@ export function LeadForm() {
     "Outros",
   ]
 
+  // Handlers
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { id, value } = e.target
     const field = id as keyof FormData
@@ -82,6 +114,7 @@ export function LeadForm() {
     setFormData((prev) => ({ ...prev, segmento: value }))
   }
 
+  // Submissão do Formulário
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
@@ -107,18 +140,21 @@ export function LeadForm() {
     setFormErrors({})
     setIsSubmitting(true)
 
-    // TODO: Adicionar coleta de dados UTM aqui, se necessário
+    // Estrutura de dados para o Webhook
+    const formDataForN8N = {
+      ...formData,
+      ...utmData,
+      telefone: cleanPhone,
+    }
 
     const n8nBody = {
       form_id: "metodo_elg_2307",
       form_title: "Inscrição Método ELG - 23/07",
-      form_data: {
-        ...formData,
-        telefone: cleanPhone,
-      },
+      form_data: formDataForN8N,
       timestamp: new Date().toISOString().replace("T", " ").substring(0, 19),
       user_agent: typeof window !== "undefined" ? navigator.userAgent : "",
       page_url: typeof window !== "undefined" ? window.location.href : "",
+      referer_url: typeof document !== "undefined" ? document.referrer : "",
     }
 
     try {
@@ -139,10 +175,9 @@ export function LeadForm() {
         }
       } else {
         const errorText = await response.text()
-        console.error(
-          `Erro HTTP do Webhook: ${response.status} - ${response.statusText}. Detalhes: ${errorText}`,
+        throw new Error(
+          `Erro no webhook: ${response.status} - ${errorText}`,
         )
-        throw new Error(`Erro HTTP: ${response.status} - ${response.statusText}`)
       }
     } catch (err) {
       console.error("Erro ao enviar formulário:", err)
@@ -170,61 +205,63 @@ export function LeadForm() {
 
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-6">
-          <div className="grid md:grid-cols-2 gap-4">
-            <div className="space-y-2">
-              <Label htmlFor="nome" className="text-gray-300">
-                Seu nome *
-              </Label>
-              <Input
-                id="nome"
-                type="text"
-                placeholder="Seu nome"
-                value={formData.nome}
-                onChange={handleInputChange}
-                required
-                className="bg-[#2A2A2A] border-gray-600 text-white placeholder:text-gray-400 focus:border-[#F9A826] focus:ring-[#F9A826]"
-              />
-            </div>
-
-            <div className="space-y-2">
-              <Label htmlFor="email" className="text-gray-300">
-                Seu email *
-              </Label>
-              <Input
-                id="email"
-                type="email"
-                placeholder="seu@email.com"
-                value={formData.email}
-                onChange={handleInputChange}
-                required
-                className="bg-[#2A2A2A] border-gray-600 text-white placeholder:text-gray-400 focus:border-[#F9A826] focus:ring-[#F9A826]"
-              />
-              {formErrors.email && (
-                <p className="text-red-400 text-xs mt-1">{formErrors.email}</p>
-              )}
-            </div>
+          {/* Nome */}
+          <div className="space-y-2">
+            <Label htmlFor="nome" className="text-gray-300">
+              Seu nome *
+            </Label>
+            <Input
+              id="nome"
+              type="text"
+              placeholder="Seu nome"
+              value={formData.nome}
+              onChange={handleInputChange}
+              required
+              className="bg-[#2A2A2A] border-gray-600 text-white placeholder:text-gray-400 focus:border-[#F9A826] focus:ring-[#F9A826]"
+            />
           </div>
 
-          <div className="grid md:grid-cols-2 gap-4">
-            <div className="space-y-2">
-              <Label htmlFor="telefone" className="text-gray-300">
-                Seu telefone *
-              </Label>
-              <Input
-                id="telefone"
-                type="tel"
-                placeholder="(11) 99999-9999"
-                value={formData.telefone}
-                onChange={handleInputChange}
-                required
-                className="bg-[#2A2A2A] border-gray-600 text-white placeholder:text-gray-400 focus:border-[#F9A826] focus:ring-[#F9A826]"
-                maxLength={15}
-              />
-              {formErrors.telefone && (
-                <p className="text-red-400 text-xs mt-1">{formErrors.telefone}</p>
-              )}
-            </div>
+          {/* Email */}
+          <div className="space-y-2">
+            <Label htmlFor="email" className="text-gray-300">
+              Seu email *
+            </Label>
+            <Input
+              id="email"
+              type="email"
+              placeholder="seu@email.com"
+              value={formData.email}
+              onChange={handleInputChange}
+              required
+              className="bg-[#2A2A2A] border-gray-600 text-white placeholder:text-gray-400 focus:border-[#F9A826] focus:ring-[#F9A826]"
+            />
+            {formErrors.email && (
+              <p className="text-red-400 text-xs mt-1">{formErrors.email}</p>
+            )}
+          </div>
 
+          {/* Telefone */}
+          <div className="space-y-2">
+            <Label htmlFor="telefone" className="text-gray-300">
+              Seu telefone *
+            </Label>
+            <Input
+              id="telefone"
+              type="tel"
+              placeholder="(11) 99999-9999"
+              value={formData.telefone}
+              onChange={handleInputChange}
+              required
+              className="bg-[#2A2A2A] border-gray-600 text-white placeholder:text-gray-400 focus:border-[#F9A826] focus:ring-[#F9A826]"
+              maxLength={15}
+            />
+            {formErrors.telefone && (
+              <p className="text-red-400 text-xs mt-1">{formErrors.telefone}</p>
+            )}
+          </div>
+
+          {/* Empresa e Site */}
+          <div className="grid md:grid-cols-2 gap-4">
             <div className="space-y-2">
               <Label htmlFor="empresa" className="text-gray-300">
                 Nome da sua empresa *
@@ -239,35 +276,6 @@ export function LeadForm() {
                 className="bg-[#2A2A2A] border-gray-600 text-white placeholder:text-gray-400 focus:border-[#F9A826] focus:ring-[#F9A826]"
               />
             </div>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-4">
-            <div className="space-y-2">
-              <Label htmlFor="segmento" className="text-gray-300">
-                Segmento de atuação *
-              </Label>
-              <Select
-                value={formData.segmento}
-                onValueChange={handleSelectChange}
-                required
-              >
-                <SelectTrigger className="bg-[#2A2A2A] border-gray-600 text-white focus:border-[#F9A826] focus:ring-[#F9A826]">
-                  <SelectValue placeholder="Selecione seu segmento" />
-                </SelectTrigger>
-                <SelectContent className="bg-[#2A2A2A] border-gray-600">
-                  {segmentosOptions.map((segmento) => (
-                    <SelectItem
-                      key={segmento}
-                      value={segmento}
-                      className="text-white focus:bg-[#F9A826]/20 focus:text-white"
-                    >
-                      {segmento}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
-
             <div className="space-y-2">
               <Label htmlFor="site" className="text-gray-300">
                 Site da sua empresa
@@ -283,6 +291,34 @@ export function LeadForm() {
             </div>
           </div>
 
+          {/* Segmento */}
+          <div className="space-y-2">
+            <Label htmlFor="segmento" className="text-gray-300">
+              Segmento de atuação *
+            </Label>
+            <Select
+              value={formData.segmento}
+              onValueChange={handleSelectChange}
+              required
+            >
+              <SelectTrigger className="w-full bg-[#2A2A2A] border-gray-600 text-white focus:border-[#F9A826] focus:ring-[#F9A826]">
+                <SelectValue placeholder="Selecione seu segmento" />
+              </SelectTrigger>
+              <SelectContent className="bg-[#2A2A2A] border-gray-600">
+                {segmentosOptions.map((segmento) => (
+                  <SelectItem
+                    key={segmento}
+                    value={segmento}
+                    className="text-white focus:bg-[#F9A826]/20 focus:text-white"
+                  >
+                    {segmento}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+
+          {/* Botão de Submissão */}
           <Button
             type="submit"
             disabled={isSubmitting}
