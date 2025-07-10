@@ -264,19 +264,23 @@ export default function LandingPage() {
                 <div className="bg-[#1E1E1E]/80 border border-gray-700/50 rounded-lg p-6 space-y-4">
                   <h4 className="flex items-center gap-2 text-xl font-bold text-white">
                     <Zap className="w-5 h-5 text-[#F9A826]" />
-                    SOBRE O E.L.G.A.
+                    SOBRE O MÉTODO ELG
                   </h4>
                   <p>
-                    E.L.G.A. é o hub de mentoria premium da Opens. Conduzido por Douglas Conrad, o programa reúne
-                    clientes selecionados em sessões exclusivas de 60 minutos ao vivo.
+                    O Método ELG (Experience-Led Growth) é uma estratégia desenvolvida por Douglas Conrad para
+                    transformar a base de clientes existente no maior ativo de crescimento de uma empresa. O foco é
+                    parar de depender exclusivamente de novos leads e começar a gerar receita previsível através de
+                    recompra, retenção e indicações.
                   </p>
                   <p>
-                    A cada edição, Douglas revela estratégias que convertem o atendimento em receita previsível —
-                    unindo tecnologia, processos e desenvolvimento humano.
+                    Nesta metodologia, você aprenderá a criar uma jornada de cliente que não apenas encanta, mas
+                    converte o relacionamento em resultados financeiros. É a chave para escalar vendas de forma
+                    inteligente, otimizando o LTV (Lifetime Value) e reduzindo o CAC (Custo de Aquisição de
+                    Cliente).
                   </p>
                   <blockquote className="text-lg italic text-[#F9A826] border-l-4 border-[#F9A826] pl-4 my-4">
-                    "Participe, mergulhe em diálogos de alto nível e transforme sua experiência de cliente em
-                    legado de crescimento."
+                    "O segredo para dobrar a receita não está em gastar mais, mas em se relacionar melhor. O
+                    cliente que compra e fica, também traz outros."
                   </blockquote>
                 </div>
 
