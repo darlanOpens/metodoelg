@@ -42,6 +42,15 @@ const formatPhoneNumber = (value: string) => {
   }
 }
 
+// Adiciona "https://" a uma URL se não tiver protocolo
+const normalizeUrl = (url: string): string => {
+  if (!url) return ""
+  if (!/^https?:\/\//i.test(url)) {
+    return `https://${url}`
+  }
+  return url
+}
+
 export function LeadForm() {
   // Estados
   const [formData, setFormData] = useState<FormData>({
@@ -143,6 +152,7 @@ export function LeadForm() {
     // Estrutura de dados para o Webhook
     const formDataForN8N = {
       ...formData,
+      site: normalizeUrl(formData.site), // Normaliza a URL aqui
       ...utmData,
       telefone: cleanPhone,
     }
