@@ -1,13 +1,21 @@
+'use client';
+
 import type React from "react"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
+import { useEffect } from 'react';
+import TagManager from 'react-gtm-module';
 
 const inter = Inter({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-inter",
 })
+
+const tagManagerArgs = {
+  gtmId: 'GTM-K3SBSHG5'
+}
 
 export const metadata: Metadata = {
   title: "Método ELG - Como a IA vai Dobrar sua Receita Sem Gastar Mais em Tráfego",
@@ -32,8 +40,14 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+
+  useEffect(() => {
+    TagManager.initialize(tagManagerArgs);
+  }, []);
+
   return (
-    <html lang="pt-BR" className={inter.variable}>
+    <html lang="pt-BR" className={inter.variable} suppressHydrationWarning>
+      <head />
       <body>{children}</body>
     </html>
   )
