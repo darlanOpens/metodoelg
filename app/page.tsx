@@ -362,7 +362,7 @@ export default function LandingPage() {
                 <CardContent className="p-6 text-center">
                   <Clock className="w-8 h-8 text-[#F9A826] mx-auto mb-3" />
                   <h3 className="font-bold text-white mb-2">Horário</h3>
-                  <p className="text-gray-300">19:00</p>
+                  <p className="text-gray-300">17:00</p>
                 </CardContent>
               </Card>
               <Card className="bg-[#0C1211] border-[#F9A826]/30">
