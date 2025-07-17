@@ -149,10 +149,16 @@ export function LeadForm() {
     setFormErrors({})
     setIsSubmitting(true)
 
+    // Normalizar URL do site - adicionar https:// se não tiver protocolo
+    let normalizedSite = formData.site.trim()
+    if (normalizedSite && !normalizedSite.match(/^https?:\/\//)) {
+      normalizedSite = `https://${normalizedSite}`
+    }
+
     // Estrutura de dados para o Webhook
     const formDataForN8N = {
       ...formData,
-      site: normalizeUrl(formData.site), // Normaliza a URL aqui
+      site: normalizedSite, // Usar a versão normalizada do site
       ...utmData,
       telefone: cleanPhone,
     }
