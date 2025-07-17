@@ -298,7 +298,7 @@ export function LeadForm() {
               </Label>
               <Input
                 id="site"
-                type="url"
+                type="text"
                 placeholder="https://suaempresa.com.br"
                 value={formData.site}
                 onChange={handleInputChange}
