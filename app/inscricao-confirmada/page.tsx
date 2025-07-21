@@ -24,7 +24,7 @@ export default function ConfirmationPage() {
           </h2>
           <div className="flex justify-center items-center gap-6">
             <a
-              href="https://www.instagram.com/douglasconrad/"
+              href="https://www.instagram.com/douglascon"
               target="_blank"
               rel="noopener noreferrer"
               className="flex flex-col items-center gap-2 text-gray-400 hover:text-white transition-colors"
@@ -40,15 +40,6 @@ export default function ConfirmationPage() {
             >
               <Linkedin className="w-8 h-8" />
               <span>LinkedIn</span>
-            </a>
-            <a
-              href="https://www.youtube.com/@douglasconrad"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex flex-col items-center gap-2 text-gray-400 hover:text-white transition-colors"
-            >
-              <Youtube className="w-8 h-8" />
-              <span>YouTube</span>
             </a>
           </div>
         </div>
