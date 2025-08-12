@@ -14,7 +14,7 @@ import {
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { ArrowRight, Users } from "lucide-react"
 import { useRouter } from "next/navigation"
-import { BASE_PATH } from "@/lib/paths"
+import { withBasePath } from "@/lib/paths"
 
 // Interfaces
 interface FormData {
@@ -190,10 +190,10 @@ export function LeadForm() {
 
       if (response.ok) {
         try {
-          router.push(`${BASE_PATH}/inscricao-confirmada`)
+          router.push('/inscricao-confirmada')
         } catch {
           if (typeof window !== "undefined") {
-            window.location.href = `${BASE_PATH}/inscricao-confirmada`
+            window.location.href = withBasePath('/inscricao-confirmada')
           }
         }
       } else {
