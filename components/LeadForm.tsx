@@ -13,6 +13,8 @@ import {
 } from "@/components/ui/select"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { ArrowRight, Users } from "lucide-react"
+import { useRouter } from "next/navigation"
+import { BASE_PATH } from "@/lib/paths"
 
 // Interfaces
 interface FormData {
@@ -52,6 +54,7 @@ const normalizeUrl = (url: string): string => {
 }
 
 export function LeadForm() {
+  const router = useRouter()
   // Estados
   const [formData, setFormData] = useState<FormData>({
     nome: "",
@@ -164,8 +167,8 @@ export function LeadForm() {
     }
 
     const n8nBody = {
-      form_id: "metodo_elg_2307",
-      form_title: "Inscrição Método ELG - 23/07",
+      form_id: "metodo_elg_04092025",
+      form_title: "Inscrição Método ELG - 04/09/2025",
       form_data: formDataForN8N,
       timestamp: new Date().toISOString().replace("T", " ").substring(0, 19),
       user_agent: typeof window !== "undefined" ? navigator.userAgent : "",
@@ -186,8 +189,12 @@ export function LeadForm() {
       )
 
       if (response.ok) {
-        if (typeof window !== "undefined") {
-          window.location.href = "/metodoelg/inscricao-confirmada"
+        try {
+          router.push(`${BASE_PATH}/inscricao-confirmada`)
+        } catch {
+          if (typeof window !== "undefined") {
+            window.location.href = `${BASE_PATH}/inscricao-confirmada`
+          }
         }
       } else {
         const errorText = await response.text()
@@ -211,11 +218,11 @@ export function LeadForm() {
         <div className="flex items-center justify-center gap-2 mb-4">
           <Users className="w-6 h-6 text-[#F9A826]" />
           <CardTitle className="text-2xl font-bold text-white">
-            Garanta sua vaga agora
+            Garanta sua vaga em 30 segundos
           </CardTitle>
         </div>
         <p className="text-gray-300">
-          Preencha os dados abaixo para se inscrever na aula gratuita
+          Seus dados estão seguros. Aula ao vivo, sem retransmissão.
         </p>
       </CardHeader>
 
@@ -340,14 +347,14 @@ export function LeadForm() {
             disabled={isSubmitting}
             className="w-full bg-gradient-to-r from-[#F9A826] to-[#FFDE59] text-black font-bold py-4 px-8 rounded-full text-lg hover:brightness-110 transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            {isSubmitting ? (
-              "Processando..."
-            ) : (
-              <>
-                🔒 Solicitar lugar na aula
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </>
-            )}
+              {isSubmitting ? (
+                "Processando..."
+              ) : (
+                <>
+                  🔒 Quero minha vaga
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </>
+              )}
           </Button>
 
           <p className="text-xs text-gray-400 text-center">

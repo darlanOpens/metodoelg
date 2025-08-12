@@ -14,8 +14,8 @@ export default function ConfirmationPage() {
           Inscrição confirmada!
         </h1>
         <p className="text-lg text-gray-300 mb-8">
-          Parabéns! Sua vaga para a aula gratuita "Como Dobrar sua Receita Sem Gastar Mais em Tráfego" está garantida.
-          Enviamos todos os detalhes para o seu e-mail.
+          Parabéns! Sua vaga para a aula gratuita "Construindo uma Máquina de Lucro Recorrente" está garantida.
+          Enviaremos todos os detalhes para o seu e-mail e WhatsApp.
         </p>
 
         <div className="bg-[#0C1211] p-6 rounded-lg border border-gray-700/50 mb-8">
