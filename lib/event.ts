@@ -1,9 +1,9 @@
 export const EVENT_DETAILS = {
-  title: "Construindo uma Máquina de Lucro Recorrente",
+  title: process.env.NEXT_PUBLIC_EVENT_TITLE ?? "Construindo uma Máquina de Lucro Recorrente",
   subtitle:
     "IA + processos simples para ativar quem já é seu cliente, reduzir perdas silenciosas e criar previsibilidade de caixa.",
-  date: "04 de Setembro de 2025",
-  time: "17:00 as 18:30 (Brasília)",
+  date: process.env.NEXT_PUBLIC_EVENT_DATE ?? "04 de Setembro de 2025",
+  time: process.env.NEXT_PUBLIC_EVENT_TIME ?? "17:00 as 18:30 (Brasília)",
 
   duration: "1h30",
   format: "100% online e ao vivo",
