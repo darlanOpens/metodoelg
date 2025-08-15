@@ -3,7 +3,8 @@ export const EVENT_DETAILS = {
   subtitle:
     "IA + processos simples para ativar quem já é seu cliente, reduzir perdas silenciosas e criar previsibilidade de caixa.",
   date: "04 de Setembro de 2025",
-  time: "19h (Brasília)",
+  time: "17:00 as 18:30 (Brasília)",
+
   duration: "1h30",
   format: "100% online e ao vivo",
   replay: "Não haverá",
