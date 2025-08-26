@@ -15,6 +15,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { ArrowRight, Users } from "lucide-react"
 import { useRouter } from "next/navigation"
 import { withBasePath } from "@/lib/paths"
+import { sendLeadConversion, sendButtonClick } from "@/lib/gtm"
 
 // Interfaces
 interface FormData {
@@ -126,6 +127,11 @@ export function LeadForm() {
     setFormData((prev) => ({ ...prev, segmento: value }))
   }
 
+  // Handler para clique no botão de submit
+  const handleButtonClick = () => {
+    sendButtonClick('Quero minha vaga', 'Lead Form');
+  };
+
   // Submissão do Formulário
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -189,6 +195,19 @@ export function LeadForm() {
       )
 
       if (response.ok) {
+        // Envia evento de conversão para o GTM
+        sendLeadConversion({
+          nome: formData.nome,
+          email: formData.email,
+          empresa: formData.empresa,
+          segmento: formData.segmento,
+          telefone: formData.telefone,
+          site: formData.site,
+          utm_source: utmData.utm_source,
+          utm_medium: utmData.utm_medium,
+          utm_campaign: utmData.utm_campaign
+        });
+        
         try {
           router.push('/inscricao-confirmada')
         } catch {
@@ -345,6 +364,7 @@ export function LeadForm() {
           <Button
             type="submit"
             disabled={isSubmitting}
+            onClick={handleButtonClick}
             className="w-full bg-gradient-to-r from-[#F9A826] to-[#FFDE59] text-black font-bold py-4 px-8 rounded-full text-lg hover:brightness-110 transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
           >
               {isSubmitting ? (
@@ -364,4 +384,4 @@ export function LeadForm() {
       </CardContent>
     </Card>
   )
-} 
+}

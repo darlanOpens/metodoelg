@@ -1,8 +1,19 @@
+"use client"
+
+import { useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { CheckCircle, Instagram, Linkedin, Youtube } from "lucide-react"
 import Link from "next/link"
+import { sendPageView, sendGTMEvent } from "@/lib/gtm"
 
 export default function ConfirmationPage() {
+  useEffect(() => {
+    sendPageView('/confirmacao')
+    sendGTMEvent('conversion', {
+      event_category: 'engagement',
+      event_label: 'registration_confirmed'
+    })
+  }, [])
   return (
     <div className="min-h-screen bg-[#0C1211] text-white font-inter flex items-center justify-center p-6">
       <div className="max-w-3xl mx-auto text-center bg-[#1E1E1E] p-8 md:p-12 rounded-2xl border border-[#F9A826]/30 shadow-2xl shadow-[#F9A826]/10">
@@ -55,4 +66,4 @@ export default function ConfirmationPage() {
       </div>
     </div>
   )
-} 
+}
