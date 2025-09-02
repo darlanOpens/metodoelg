@@ -42,6 +42,13 @@ export function HeroSection() {
                   className="h-32 lg:h-40 w-auto"
                 />
               </div>
+              
+              {/* Cápsula de evento gratuito */}
+              <div className="inline-flex items-center gap-2 bg-[#F9A826]/20 border border-[#F9A826]/40 text-[#F9A826] font-semibold px-4 py-2 rounded-full text-xs lg:text-sm backdrop-blur-sm">
+                <span className="text-sm">🎁</span>
+                <span>EVENTO GRATUITO</span>
+              </div>
+              
               <h1 className="text-3xl lg:text-4xl font-bold leading-tight mb-12 lg:mb-16">
                 <span>Construindo uma Máquina de </span>
                 <span className="relative inline-block">
