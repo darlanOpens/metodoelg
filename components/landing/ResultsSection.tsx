@@ -9,7 +9,7 @@ export function ResultsSection() {
   return (
     <section className="bg-[#242424] py-0 relative overflow-hidden">
       <div className="w-full">
-        <div className="relative w-full border-t border-b border-[#343434] py-16 lg:py-20 overflow-hidden">
+        <div className="relative max-w-7xl mx-auto py-16 lg:py-20 overflow-hidden">
           {/* Golden glow background effect */}
           <div
             className="absolute inset-0 opacity-60"
@@ -27,7 +27,7 @@ export function ResultsSection() {
           ></div>
 
           {/* Background decorative circles */}
-          <div className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-1/4 w-[500px] h-[500px] opacity-25">
+          <div className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-1/4 w-[1200px] h-[1200px] opacity-25">
             <img
               src={withBasePath("/images/bb5812917df49de46cb4289203792a147aae1b6f.svg")}
               alt=""
@@ -35,7 +35,7 @@ export function ResultsSection() {
             />
           </div>
 
-          <div className="absolute right-20 top-1/2 transform -translate-y-1/2 w-[800px] h-[800px] opacity-10 scale-150">
+          <div className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-1/3 w-[800px] h-[800px]  scale-150">
             <img
               src={withBasePath("/images/04bad537f634011a7a5151b1c4b1ae80837ff46f.svg")}
               alt=""
