@@ -25,7 +25,7 @@ export function HeroSection() {
 
       {/* Hero Content */}
       <div className="container mx-auto px-6 py-16 relative z-10">
-        <div className="max-w-5xl mx-auto flex flex-col gap-12">
+        <div className="max-w-[45rem] mx-auto flex flex-col gap-12">
           <div className="flex flex-col gap-8 items-center text-center">
             {/* Logo */}
             <div className="w-80 lg:w-96">
@@ -39,14 +39,9 @@ export function HeroSection() {
             </div>
 
             {/* Main title */}
-            <h1 className="text-3xl lg:text-5xl xl:text-6xl font-light leading-tight text-white tracking-tight max-w-4xl" style={{ fontFamily: "'Butler', serif" }}>
+            <h1 className="text-3xl lg:text-5xl xl:text-6xl font-light leading-relaxed text-white tracking-tight max-w-4xl text-left" style={{ fontFamily: "'Butler', serif" }}>
               Enquanto você insiste no funil tradicional, seus concorrentes já lucram com o Flywheel.
             </h1>
-
-            {/* Subtitle */}
-            <p className="text-lg lg:text-xl text-white max-w-3xl text-center leading-relaxed" style={{ fontFamily: "'Work Sans', sans-serif" }}>
-              Assista à aula estratégica gratuita e descubra como transformar seu negócio.
-            </p>
           </div>
 
           {/* Bottom section with event info and badge */}
@@ -98,7 +93,7 @@ export function HeroSection() {
                 <div className="text-center">
                   <div className="text-3xl lg:text-4xl mb-2 bg-gradient-to-b from-[#F4CE71] to-[#BE8C38] bg-clip-text" style={{ WebkitTextFillColor: "transparent" }}>🎁</div>
                   <p className="text-xs lg:text-sm font-semibold bg-gradient-to-b from-[#F4CE71] to-[#BE8C38] bg-clip-text uppercase tracking-wide" style={{ WebkitTextFillColor: "transparent", fontFamily: "'Inter', sans-serif" }}>
-                    EVENTO GRATUITO
+                    AULA GRATUITA
                   </p>
                 </div>
               </div>
