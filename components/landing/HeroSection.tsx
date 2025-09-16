@@ -91,7 +91,16 @@ export function HeroSection() {
             <div className="flex-shrink-0">
               <div className="w-40 h-44 lg:w-44 lg:h-48 border border-[#F4CE71] rounded-2xl flex items-center justify-center">
                 <div className="text-center">
-                  <div className="text-3xl lg:text-4xl mb-2 bg-gradient-to-b from-[#F4CE71] to-[#BE8C38] bg-clip-text" style={{ WebkitTextFillColor: "transparent" }}>🎁</div>
+                  <div className="mb-2 w-8 h-8 lg:w-10 lg:h-10 mx-auto">
+                    <Image
+                      src={withBasePath("/ticket.png")}
+                      alt=""
+                      width={40}
+                      height={40}
+                      className="w-full h-full object-contain"
+                      style={{ filter: "brightness(0) saturate(100%) invert(83%) sepia(69%) saturate(372%) hue-rotate(346deg) brightness(93%) contrast(91%)" }}
+                    />
+                  </div>
                   <p className="text-xs lg:text-sm font-semibold bg-gradient-to-b from-[#F4CE71] to-[#BE8C38] bg-clip-text uppercase tracking-wide" style={{ WebkitTextFillColor: "transparent", fontFamily: "'Inter', sans-serif" }}>
                     AULA GRATUITA
                   </p>
