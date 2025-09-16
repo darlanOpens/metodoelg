@@ -1,11 +1,12 @@
 import {
   HeroSection,
-  ProblemSection,
+  FlywheelSection,
+  ResultsSection,
+  UrgencySection,
   WhatYouWillLearnSection,
   LeadFormSection,
-  TargetAudienceSection,
   MentorSection,
-  BonusesSection,
+  ToolkitSection,
   CourseInfoSection,
   FinalCTASection,
   FooterSection,
@@ -13,14 +14,15 @@ import {
 
 export default function LandingPage() {
   return (
-    <div className="min-h-screen bg-[#0C1211] text-white font-inter">
+    <div className="min-h-screen bg-[#242424] text-white font-inter">
       <HeroSection />
-      <ProblemSection />
+      <FlywheelSection />
+      <ResultsSection />
+      <UrgencySection />
       <WhatYouWillLearnSection />
       <LeadFormSection />
-      <TargetAudienceSection />
       <MentorSection />
-      <BonusesSection />
+      <ToolkitSection />
       <CourseInfoSection />
       <FinalCTASection />
       <FooterSection />

@@ -41,7 +41,7 @@ export function MentorSection() {
                 <p className="text-lg text-[#F9A826] font-medium">
                   Criador do Método {EVENT_DETAILS.methodName}
                 </p>
-                <p className="text-lg">Mentor do G4 Educação</p>
+                <p className="text-lg">CRO da Opens e Mentor do G4 Educação</p>
               </div>
 
               <div className="bg-[#1E1E1E]/80 border border-gray-700/50 rounded-lg p-6 space-y-4">
@@ -57,12 +57,12 @@ export function MentorSection() {
 
               <div className="grid sm:grid-cols-2 gap-6">
                 <div className="bg-[#1E1E1E]/80 border border-gray-700/50 rounded-lg p-4">
-                  <h5 className="font-bold text-[#F9A826]">SESSÕES EXCLUSIVAS</h5>
-                  <p className="text-sm">60 minutos ao vivo com clientes selecionados</p>
+                  <h5 className="font-bold text-[#F9A826]">FLYWHEEL DE CRESCIMENTO</h5>
+                  <p className="text-sm">Ciclo contínuo onde clientes satisfeitos atraem novos negócios</p>
                 </div>
                 <div className="bg-[#1E1E1E]/80 border border-gray-700/50 rounded-lg p-4">
-                  <h5 className="font-bold text-[#F9A826]">RECEITA PREVISÍVEL</h5>
-                  <p className="text-sm">Estratégias que convertem atendimento em resultados</p>
+                  <h5 className="font-bold text-[#F9A826]">CRESCIMENTO SUSTENTÁVEL</h5>
+                  <p className="text-sm">Três fases: Engajamento, Encantamento e Indicação</p>
                 </div>
               </div>
             </div>

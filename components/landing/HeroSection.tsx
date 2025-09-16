@@ -1,110 +1,105 @@
 import Image from "next/image"
-import { Caveat } from "next/font/google"
-import { ArrowRight, Calendar, Clock, MapPin } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { withBasePath } from "@/lib/paths"
 import { EVENT_DETAILS } from "@/lib/event"
 
-const caveat = Caveat({ subsets: ["latin"], weight: ["700"] })
-
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden">
+    <section className="relative overflow-hidden bg-[#242424] min-h-screen">
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
           src={withBasePath("/Background.png")}
           alt="Background"
           fill
-          className="object-cover object-left-top lg:object-top"
+          className="object-cover mix-blend-lighten"
           priority
         />
-        <div className="absolute inset-0"></div>
       </div>
 
-      <div className="absolute inset-0 bg-gradient-to-br from-[#F9A826]/10 to-transparent"></div>
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-20 left-20 w-32 h-32 border border-[#F9A826]/30 rotate-45"></div>
-        <div className="absolute top-40 right-32 w-24 h-24 border border-[#F9A826]/20 rotate-12"></div>
-        <div className="absolute bottom-32 left-1/4 w-16 h-16 border border-[#F9A826]/25 -rotate-12"></div>
-      </div>
+      {/* Gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#242424] to-60%"></div>
 
+      {/* Hero Content */}
       <div className="container mx-auto px-6 py-16 relative z-10">
-        <div className="grid lg:grid-cols-12 gap-12 items-center">
-          <div className="space-y-8 lg:col-span-8 xl:col-span-8">
-            <div className="space-y-4">
-              <div className="mb-2">
-                <Image
-                  src={withBasePath("/metodoELGhorizontal.png")}
-                  alt="Método ELG"
-                  width={600}
-                  height={180}
-                  className="h-32 lg:h-40 w-auto"
-                />
-              </div>
-              
-              {/* Cápsula de evento gratuito */}
-              <div className="inline-flex items-center gap-2 bg-[#F9A826]/20 border border-[#F9A826]/40 text-[#F9A826] font-semibold px-4 py-2 rounded-full text-xs lg:text-sm backdrop-blur-sm">
-                <span className="text-sm">🎁</span>
-                <span>EVENTO GRATUITO</span>
-              </div>
-              
-              <h1 className="text-3xl lg:text-4xl font-bold leading-tight mb-12 lg:mb-16">
-                <span>Construindo uma Máquina de </span>
-                <span className="relative inline-block">
-                  <span className="line-through decoration-red-500 decoration-4">Vendas</span>
-                  <span
-                    className={`${caveat.className} absolute left-12 sm:left-14 md:left-16 lg:left-18 bottom-[-0.4rem] sm:bottom-[-0.4rem] lg:bottom-[-0.2rem] text-[#F9A826] text-3xl lg:text-4xl rotate-[-14deg] whitespace-nowrap leading-[0.85] tracking-tight`}
-                  >
-                    Lucro Recorrente
-                  </span>
-                </span>
-              </h1>
-              <p className="text-lg text-gray-300 leading-relaxed">
-                {EVENT_DETAILS.subtitle}
-              </p>
+        <div className="max-w-5xl mx-auto flex flex-col gap-12">
+          <div className="flex flex-col gap-8 items-center text-center">
+            {/* Logo */}
+            <div className="w-80 lg:w-96">
+              <Image
+                src={withBasePath("/metodoELGhorizontal.png")}
+                alt="Método ELG"
+                width={493}
+                height={211}
+                className="w-full h-auto object-contain"
+              />
             </div>
 
-            <div className="space-y-3 text-gray-300">
-              <div className="flex items-center gap-3">
-                <Calendar className="w-5 h-5 text-[#F9A826]" />
-                <span>
-                  <strong>Data:</strong> {EVENT_DETAILS.date}
-                </span>
-              </div>
-              <div className="flex items-center gap-3">
-                <Clock className="w-5 h-5 text-[#F9A826]" />
-                <span>
-                  <strong>Horário:</strong> {EVENT_DETAILS.time}
-                </span>
-              </div>
-              <div className="flex items-center gap-3">
-                <MapPin className="w-5 h-5 text-[#F9A826]" />
-                <span>
-                  <strong>{EVENT_DETAILS.format}</strong> – {EVENT_DETAILS.noReplayShort}.
-                </span>
-              </div>
-            </div>
+            {/* Main title */}
+            <h1 className="text-3xl lg:text-5xl xl:text-6xl font-light leading-tight text-white tracking-tight max-w-4xl" style={{ fontFamily: "'Butler', serif" }}>
+              Enquanto você insiste no funil tradicional, seus concorrentes já lucram com o Flywheel.
+            </h1>
 
-            <a href="#inscricao" className="block pt-6">
-              <Button className="w-full lg:w-auto bg-gradient-to-r from-[#F9A826] to-[#FFDE59] text-black font-bold py-4 px-8 rounded-full text-lg hover:brightness-110 transition-all duration-300 transform hover:scale-105">
-                <span className="lg:hidden">🔒 {EVENT_DETAILS.ctas.primary}</span>
-                <span className="hidden lg:inline">🔒 {EVENT_DETAILS.ctas.primary}</span>
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
-            </a>
-
-            <p className="text-sm text-gray-400">
-              👉 <em>Transmissão única. Vagas limitadas.</em>
+            {/* Subtitle */}
+            <p className="text-lg lg:text-xl text-white max-w-3xl text-center leading-relaxed" style={{ fontFamily: "'Work Sans', sans-serif" }}>
+              Assista à aula estratégica gratuita e descubra como transformar seu negócio.
             </p>
           </div>
 
-          {/* Coluna direita vazia */}
-          <div className="relative hidden lg:block lg:col-span-4"></div>
+          {/* Bottom section with event info and badge */}
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center justify-center">
+            <div className="flex-1 max-w-md flex flex-col gap-8">
+              {/* Event Info */}
+              <div className="flex flex-col gap-4">
+                <div className="flex gap-4 items-center">
+                  <div className="w-6 h-6">
+                    <img src={withBasePath("/images/calendar-icon.svg")} alt="" className="w-full h-full" />
+                  </div>
+                  <p className="text-base lg:text-lg text-gray-300">
+                    <span className="font-bold" style={{ fontFamily: "'Work Sans', sans-serif" }}>Data:</span>
+                    <span className="font-normal" style={{ fontFamily: "'Work Sans', sans-serif" }}> 09 de Outubro de 2025</span>
+                  </p>
+                </div>
+                <div className="flex gap-4 items-center">
+                  <div className="w-6 h-6">
+                    <img src={withBasePath("/images/clock-icon.svg")} alt="" className="w-full h-full" />
+                  </div>
+                  <p className="text-base lg:text-lg text-gray-300">
+                    <span className="font-bold" style={{ fontFamily: "'Work Sans', sans-serif" }}>Horário:</span>
+                    <span className="font-normal" style={{ fontFamily: "'Work Sans', sans-serif" }}> 17:00 às 18:30 (Brasília)</span>
+                  </p>
+                </div>
+                <div className="flex gap-4 items-center">
+                  <div className="w-6 h-6">
+                    <img src={withBasePath("/images/live-icon.svg")} alt="" className="w-full h-full" />
+                  </div>
+                  <p className="text-base lg:text-lg text-gray-300">
+                    <span className="font-bold" style={{ fontFamily: "'Work Sans', sans-serif" }}>100% online e ao vivo</span>
+                    <span className="font-normal" style={{ fontFamily: "'Work Sans', sans-serif" }}> – sem replay.</span>
+                  </p>
+                </div>
+              </div>
+
+              {/* CTA Button */}
+              <button className="bg-gradient-to-b from-[#F4CE71] to-[#BE8C38] text-black text-base lg:text-lg font-normal py-4 px-8 rounded-full w-full max-w-xs mx-auto lg:mx-0 whitespace-nowrap">
+                Assistir aula estratégica gratuita
+              </button>
+            </div>
+
+            {/* Event Badge */}
+            <div className="flex-shrink-0">
+              <div className="w-40 h-44 lg:w-44 lg:h-48 border border-[#F4CE71] rounded-2xl flex items-center justify-center">
+                <div className="text-center">
+                  <div className="text-3xl lg:text-4xl mb-2 bg-gradient-to-b from-[#F4CE71] to-[#BE8C38] bg-clip-text" style={{ WebkitTextFillColor: "transparent" }}>🎁</div>
+                  <p className="text-xs lg:text-sm font-semibold bg-gradient-to-b from-[#F4CE71] to-[#BE8C38] bg-clip-text uppercase tracking-wide" style={{ WebkitTextFillColor: "transparent", fontFamily: "'Inter', sans-serif" }}>
+                    EVENTO GRATUITO
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
   )
 }
-
-

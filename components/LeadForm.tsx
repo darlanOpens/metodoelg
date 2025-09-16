@@ -167,8 +167,8 @@ export function LeadForm() {
     }
 
     const n8nBody = {
-      form_id: "metodo_elg_04092025",
-      form_title: "Inscrição Método ELG - 04/09/2025",
+      form_id: "metodo_elg_09102025",
+      form_title: "Inscrição Método ELG - 09/10/2025",
       form_data: formDataForN8N,
       timestamp: new Date().toISOString().replace("T", " ").substring(0, 19),
       user_agent: typeof window !== "undefined" ? navigator.userAgent : "",
