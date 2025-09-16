@@ -1,3 +1,5 @@
+'use client'
+
 import { FileText } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { scrollToSection } from "@/lib/scroll"
