@@ -1,3 +1,5 @@
+'use client'
+
 import { Button } from "@/components/ui/button"
 import { Calendar, Clock, MapPin, AlertTriangle } from "lucide-react"
 import { EVENT_DETAILS } from "@/lib/event"
