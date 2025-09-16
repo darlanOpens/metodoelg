@@ -2,6 +2,7 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { withBasePath } from "@/lib/paths"
 import { EVENT_DETAILS } from "@/lib/event"
+import { scrollToSection } from "@/lib/scroll"
 
 export function HeroSection() {
   return (
@@ -81,7 +82,10 @@ export function HeroSection() {
               </div>
 
               {/* CTA Button */}
-              <button className="bg-gradient-to-b from-[#F4CE71] to-[#BE8C38] text-black text-base lg:text-lg font-normal py-4 px-8 rounded-full w-full max-w-xs mx-auto lg:mx-0 whitespace-nowrap">
+              <button
+                onClick={() => scrollToSection('inscricao')}
+                className="bg-gradient-to-b from-[#F4CE71] to-[#BE8C38] text-black text-base lg:text-lg font-normal py-4 px-8 rounded-full w-full max-w-xs mx-auto lg:mx-0 whitespace-nowrap hover:from-[#F4CE71]/90 hover:to-[#BE8C38]/90 transition-all"
+              >
                 Assistir aula estratégica gratuita
               </button>
             </div>

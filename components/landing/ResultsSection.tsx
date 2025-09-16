@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { withBasePath } from "@/lib/paths"
 import Image from "next/image"
+import { scrollToSection } from "@/lib/scroll"
 
 export function ResultsSection() {
   return (
@@ -53,7 +54,10 @@ export function ResultsSection() {
               </div>
 
               <div className="flex-shrink-0 relative z-20">
-                <button className="bg-gradient-to-b from-[#F4CE71] to-[#BE8C38] text-black text-lg lg:text-xl font-normal py-4 px-8 rounded-full whitespace-nowrap shadow-lg relative">
+                <button
+                  onClick={() => scrollToSection('inscricao')}
+                  className="bg-gradient-to-b from-[#F4CE71] to-[#BE8C38] text-black text-lg lg:text-xl font-normal py-4 px-8 rounded-full whitespace-nowrap shadow-lg relative hover:from-[#F4CE71]/90 hover:to-[#BE8C38]/90 transition-all"
+                >
                   Assistir aula gratuita
                 </button>
                 {/* Button glow effect */}

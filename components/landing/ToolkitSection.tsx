@@ -1,5 +1,6 @@
 import { FileText } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { scrollToSection } from "@/lib/scroll"
 
 export function ToolkitSection() {
   return (
@@ -42,8 +43,9 @@ export function ToolkitSection() {
             </p>
 
             <Button
+              onClick={() => scrollToSection('inscricao')}
               size="lg"
-              className="bg-gradient-to-b from-[#F4CE71] to-[#BE8C38] text-black hover:from-[#F4CE71]/90 hover:to-[#BE8C38]/90 text-lg px-8 py-6 rounded-full font-medium"
+              className="bg-gradient-to-b from-[#F4CE71] to-[#BE8C38] text-black hover:from-[#F4CE71]/90 hover:to-[#BE8C38]/90 text-lg px-8 py-6 rounded-full font-medium transition-all"
             >
               Quero minha vaga e o kit de ferramentas
             </Button>

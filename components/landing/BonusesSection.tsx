@@ -2,6 +2,7 @@ import { Gift, ArrowRight, AlertTriangle, Calendar, Clock, MapPin } from "lucide
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { EVENT_DETAILS } from "@/lib/event"
+import { scrollToSection } from "@/lib/scroll"
 
 export function BonusesSection() {
   return (
@@ -30,13 +31,14 @@ export function BonusesSection() {
           <p className="text-[#F9A826] font-bold text-lg mt-8">Disponível apenas durante a transmissão.</p>
 
           <div className="mt-12">
-            <a href="#inscricao">
-              <Button className="w-full lg:w-auto bg-gradient-to-r from-[#F9A826] to-[#FFDE59] text-black font-bold py-4 px-8 rounded-full text-lg hover:brightness-110 transition-all duration-300 transform hover:scale-105">
-                <span className="lg:hidden">🔒 Quero minha vaga e o kit de ferramentas</span>
-                <span className="hidden lg:inline">🔒 Quero minha vaga e o kit de ferramentas</span>
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
-            </a>
+            <Button
+              onClick={() => scrollToSection('inscricao')}
+              className="w-full lg:w-auto bg-gradient-to-r from-[#F9A826] to-[#FFDE59] text-black font-bold py-4 px-8 rounded-full text-lg hover:brightness-110 transition-all duration-300 transform hover:scale-105"
+            >
+              <span className="lg:hidden">🔒 Quero minha vaga e o kit de ferramentas</span>
+              <span className="hidden lg:inline">🔒 Quero minha vaga e o kit de ferramentas</span>
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </Button>
             <p className="text-red-400 font-semibold mt-4">
               ⚠️ <strong>Não haverá replay.</strong> Essa é sua única chance de participar.
             </p>

@@ -1,5 +1,6 @@
 import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { scrollToSection } from "@/lib/scroll"
 
 export function FinalCTASection() {
   return (
@@ -13,12 +14,13 @@ export function FinalCTASection() {
             <p className="text-xl font-bold text-[#F9A826]">Esta é sua única chance de ter acesso a este framework estratégico ao vivo.</p>
           </div>
 
-          <a href="#inscricao">
-            <Button className="w-full lg:w-auto bg-gradient-to-r from-[#F9A826] to-[#FFDE59] text-black font-bold py-6 px-12 rounded-full text-xl hover:brightness-110 transition-all duration-300 transform hover:scale-105">
-              🔒 Quero garantir minha vaga estratégica
-              <ArrowRight className="ml-3 w-6 h-6" />
-            </Button>
-          </a>
+          <Button
+            onClick={() => scrollToSection('inscricao')}
+            className="w-full lg:w-auto bg-gradient-to-r from-[#F9A826] to-[#FFDE59] text-black font-bold py-6 px-12 rounded-full text-xl hover:brightness-110 transition-all duration-300 transform hover:scale-105"
+          >
+            🔒 Quero garantir minha vaga estratégica
+            <ArrowRight className="ml-3 w-6 h-6" />
+          </Button>
         </div>
       </div>
     </section>

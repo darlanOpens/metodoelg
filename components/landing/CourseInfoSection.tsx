@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { Calendar, Clock, MapPin, AlertTriangle } from "lucide-react"
 import { EVENT_DETAILS } from "@/lib/event"
+import { scrollToSection } from "@/lib/scroll"
 
 export function CourseInfoSection() {
   return (
@@ -50,8 +51,9 @@ export function CourseInfoSection() {
 
           <div className="text-center">
             <Button
+              onClick={() => scrollToSection('inscricao')}
               size="lg"
-              className="bg-gradient-to-b from-[#F4CE71] to-[#BE8C38] text-black hover:from-[#F4CE71]/90 hover:to-[#BE8C38]/90 text-lg px-8 py-6 rounded-full font-medium"
+              className="bg-gradient-to-b from-[#F4CE71] to-[#BE8C38] text-black hover:from-[#F4CE71]/90 hover:to-[#BE8C38]/90 text-lg px-8 py-6 rounded-full font-medium transition-all"
             >
               Quero garantir minha vaga na aula
             </Button>
