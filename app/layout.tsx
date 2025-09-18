@@ -11,13 +11,13 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: "Construindo uma Máquina de Lucro Recorrente — Método ELG",
+  title: "Do Funil ao Flywheel — Método ELG",
   description:
     "IA + processos simples para ativar quem já é seu cliente, reduzir perdas silenciosas e criar previsibilidade de caixa.",
   keywords: "método elg, douglas conrad, crescimento empresarial, retenção de clientes, aumento de receita, experience-led growth",
   authors: [{ name: "Douglas Conrad" }],
   openGraph: {
-    title: "Construindo uma Máquina de Lucro Recorrente — Método ELG",
+    title: "Do Funil ao Flywheel — Método ELG",
     description:
       "IA + processos simples para ativar quem já é seu cliente, reduzir perdas silenciosas e criar previsibilidade de caixa.",
     type: "website",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Construindo uma Máquina de Lucro Recorrente — Método ELG",
+    title: "Do Funil ao Flywheel — Método ELG",
     description:
       "IA + processos simples para ativar quem já é seu cliente, reduzir perdas silenciosas e criar previsibilidade de caixa.",
   },

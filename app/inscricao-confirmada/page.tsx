@@ -14,7 +14,7 @@ export default function ConfirmationPage() {
           Inscrição confirmada!
         </h1>
         <p className="text-lg text-gray-300 mb-8">
-          Parabéns! Sua vaga para a aula gratuita "Construindo uma Máquina de Lucro Recorrente" está garantida.
+          Parabéns! Sua vaga para a aula gratuita "Do Funil ao Flywheel" está garantida.
           Enviaremos todos os detalhes para o seu e-mail e WhatsApp.
         </p>
 
