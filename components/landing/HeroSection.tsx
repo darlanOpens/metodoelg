@@ -42,7 +42,7 @@ export function HeroSection() {
             <h1 className="text-3xl lg:text-5xl xl:text-6xl font-light leading-relaxed text-white tracking-tight max-w-4xl text-left" style={{ fontFamily: "'Butler', serif" }}>
               Enquanto você insiste no funil tradicional, seus concorrentes já lucram com o Flywheel.
             </h1>
-          </div>
+          </div> 
 
           {/* Bottom section with event info and badge */}
           <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center justify-center">
