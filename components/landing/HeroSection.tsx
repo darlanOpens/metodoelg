@@ -66,72 +66,46 @@ export function HeroSection() {
       animate="visible"
       variants={containerAnimation}
     >
-      {/* Premium Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-dark-primary via-dark-secondary to-dark-tertiary">
-        <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-dark-primary/50"></div>
-      </div>
+      {/* Simple Background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#1a1a1a] to-[#c1933d]"></div>
 
-      {/* Animated Gradient Overlay */}
-      <motion.div
-        className="absolute inset-0 opacity-30"
-        style={{ scale }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-br from-gold-start/20 via-transparent to-emerald/10 animated-gradient"></div>
-      </motion.div>
 
-      {/* Floating Particles Background */}
+      {/* Static Floating Elements - One on each side */}
       <div className="absolute inset-0">
-        {[...Array(20)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1 h-1 bg-gold-start rounded-full"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              y: [0, -30, 0],
-              opacity: [0, 1, 0],
-            }}
-            transition={{
-              duration: Math.random() * 5 + 5,
-              repeat: Infinity,
-              delay: Math.random() * 5,
-            }}
+        {/* Left Side Element */}
+        <div className="absolute top-1/2 -left-32 w-[800px] h-[800px] opacity-10 transform -translate-y-1/2">
+          <Image
+            src={withBasePath("/funil.png")}
+            alt="Flywheel"
+            fill
+            className="object-contain"
           />
-        ))}
+        </div>
+
+        {/* Right Side Element */}
+        <div className="absolute top-1/2 -right-32 w-[800px] h-[800px] opacity-10 transform -translate-y-1/2">
+          <Image
+            src={withBasePath("/flywheel.png")}
+            alt="Funil"
+            fill
+            className="object-contain"
+          />
+        </div>
       </div>
 
-      {/* Parallax Background Image */}
-      <motion.div
-        className="absolute inset-0"
-        style={{
-          x: mousePosition.x,
-          y: mousePosition.y,
-        }}
-      >
-        <Image
-          src={withBasePath("/Background.png")}
-          alt="Background"
-          fill
-          className="object-cover mix-blend-luminosity opacity-20"
-          priority
-        />
-      </motion.div>
-
-      {/* Glass Morphism Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-dark-primary/30 to-dark-primary/80 backdrop-blur-[2px]"></div>
+      {/* Subtle Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/20"></div>
 
       {/* Original Hero Content with Animation */}
       <motion.div
         className="container mx-auto px-6 py-16 relative z-10"
         variants={containerAnimation}
       >
-        <div className="max-w-[45rem] mx-auto flex flex-col gap-12">
+        <div className="max-w-[45rem] mx-auto flex flex-col gap-12 justify-center min-h-screen">
           <div className="flex flex-col items-center text-center">
             {/* Main Title - Do Funil ao Flywheel */}
             <motion.h1
-              className="w-full max-w-[731px] text-[80px] lg:text-[80px] xl:text-[140px] leading-[90%] text-left"
+              className="w-full max-w-[731px] text-[60px] lg:text-[80px] xl:text-[120px] leading-[90%] text-left"
               style={{
                 fontFamily: "'Butler', serif",
                 fontWeight: 300,
@@ -155,7 +129,7 @@ export function HeroSection() {
 
             {/* Subtitle */}
             <motion.p
-              className="text-2xl lg:text-3xl xl:text-[32px] font-normal leading-[1.15] text-white max-w-[723px] mt-8 -tracking-[0.96px] text-left"
+              className="text-2xl lg:text-3xl xl:text-[28px] font-normal leading-[1.15] text-white max-w-[723px] mt-8 -tracking-[0.96px] text-left"
               style={{
                 fontFamily: "'Open Sans', sans-serif"
               }}
@@ -222,7 +196,7 @@ export function HeroSection() {
               {/* CTA Button with Animation */}
               <motion.button
                 onClick={() => scrollToSection('inscricao')}
-                className="bg-gradient-to-b from-[#F4CE71] to-[#BE8C38] text-black text-base lg:text-lg font-normal py-4 px-8 rounded-full w-full max-w-xs mx-auto lg:mx-0 whitespace-nowrap hover:from-[#F4CE71]/90 hover:to-[#BE8C38]/90 transition-all relative overflow-hidden group"
+                className="bg-gradient-to-b from-[#F4CE71] to-[#BE8C38] text-black text-base lg:text-lg font-normal py-4 px-8 rounded-full w-full max-w-md mx-auto lg:mx-0 whitespace-nowrap hover:from-[#F4CE71]/90 hover:to-[#BE8C38]/90 transition-all relative overflow-hidden group"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >

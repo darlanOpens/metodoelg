@@ -2,6 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Redução global de escala para todos elementos */
+@layer base {
+  :root {
+    font-size: 14px; /* Reduz de 16px para 14px (87.5%) */
+  }
+
+  /* Redução de escala para textos grandes */
+  h1, h2, h3, h4, h5, h6 {
+    transform: scale(0.9);
+    transform-origin: left center;
+  }
+
+  /* Redução de paddings e gaps globalmente */
+  .container {
+    @apply !px-4 !py-8;
+  }
+}
+
 :root {
   --foreground-rgb: 255, 255, 255;
   --background-start-rgb: 12, 18, 17;
