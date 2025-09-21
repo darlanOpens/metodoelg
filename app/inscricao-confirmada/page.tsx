@@ -128,71 +128,39 @@ export default function ConfirmationPage() {
                 </div>
               </div>
 
-              {/* Título Principal */}
-              <h1 className="text-3xl lg:text-4xl font-bold text-white mb-6 leading-tight">
-                ⚠️ Falta apenas 1 passo!
-              </h1>
-              
-              {/* Subtítulo */}
-              <div className="space-y-4 mb-8">
-                <p className="text-xl text-[#F9A826] font-semibold">
-                  Para receber o link do evento, você precisa:
-                </p>
-                <div className="bg-[#0C1211] p-6 rounded-lg border border-[#F9A826]/20">
-                  <p className="text-lg text-white font-bold mb-2">
-                    🚀 Entrar na Comunidade ELG
-                  </p>
-                  <p className="text-gray-300 leading-relaxed">
-                    Faça parte da primeira comunidade focada em <span className="text-[#F4CE71] font-semibold">Experience-Led Growth</span> e receba o link da aula diretamente lá!
-                  </p>
-                </div>
-              </div>
+        <h1 className="text-3xl lg:text-4xl font-bold text-white mb-4">
+          Inscrição confirmada!
+        </h1>
+        <p className="text-lg text-gray-300 mb-8">
+          Parabéns! Sua vaga para a aula gratuita "Construindo uma Máquina de Lucro Recorrente" está garantida.
+          Enviaremos todos os detalhes para o seu e-mail e WhatsApp.
+        </p>
 
-              {/* Benefícios */}
-              <div className="space-y-4 mb-8">
-                <h3 className="text-lg font-semibold text-white">O que você ganha ao entrar:</h3>
-                <div className="space-y-3">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
-                      <span className="text-white text-sm">✓</span>
-                    </div>
-                    <p className="text-gray-300">Link exclusivo da aula gratuita</p>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
-                      <span className="text-white text-sm">✓</span>
-                    </div>
-                    <p className="text-gray-300">Networking com profissionais qualificados</p>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
-                      <span className="text-white text-sm">✓</span>
-                    </div>
-                    <p className="text-gray-300">Conteúdos exclusivos e discussões estratégicas</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Botão de Ação */}
-              <div className="space-y-4">
-                <Button
-                   asChild
-                   size="lg"
-                   className="bg-gradient-to-b from-[#F9A826] to-[#BE8C38] text-black hover:from-[#F9A826]/90 hover:to-[#BE8C38]/90 text-lg px-8 py-6 rounded-full font-medium transition-all w-full"
-                 >
-                   <a 
-                     href="https://chat.whatsapp.com/LT4FVpqXdzgK3V4r2cJyZT?mode=ems_copy_c" 
-                     target="_blank" 
-                     rel="noopener noreferrer"
-                   >
-                     🚀 Entrar na Comunidade Agora
-                   </a>
-                 </Button>
-                
-                <p className="text-sm text-gray-400 text-center">
-                  Após entrar na comunidade, você receberá o link da aula automaticamente
-                </p>
-              </div>
+        <div className="bg-[#0C1211] p-6 rounded-lg border border-gray-700/50 mb-8">
+          <h2 className="text-xl font-bold text-[#F9A826] mb-4">
+            Enquanto a aula não começa, conecte-se conosco:
+          </h2>
+          <div className="flex justify-center items-center gap-6">
+            <a
+              href="https://www.instagram.com/douglascon"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex flex-col items-center gap-2 text-gray-400 hover:text-white transition-colors"
+            >
+              <Instagram className="w-8 h-8" />
+              <span>Instagram</span>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/douglasconrad/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex flex-col items-center gap-2 text-gray-400 hover:text-white transition-colors"
+            >
+              <Linkedin className="w-8 h-8" />
+              <span>LinkedIn</span>
+            </a>
+          </div>
+        </div>
 
               {/* Link de Volta */}
               <div className="mt-8 pt-6 border-t border-gray-700/50">

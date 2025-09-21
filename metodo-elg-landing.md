@@ -1,5 +1,5 @@
 ## Hero (Topo)
-**Título:** Construindo uma Máquina de Lucro Recorrente
+**Título:** Do Funil ao Flywheel
 
 **Subtítulo:** IA + processos simples para ativar quem já é seu cliente, reduzir perdas silenciosas e criar previsibilidade de caixa.
 
