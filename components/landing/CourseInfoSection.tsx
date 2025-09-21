@@ -19,9 +19,9 @@ export function CourseInfoSection() {
               <Calendar className="w-8 h-8 text-[#F4CE71] mx-auto mb-3" />
               <h3 className="font-bold text-white mb-3">Data</h3>
               <p className="text-gray-300 text-sm leading-relaxed">
-                {EVENT_DETAILS.date.split(' ').map((part, i) => (
-                  <span key={i} className="block">{part}</span>
-                ))}
+                <span className="block font-semibold text-base">09</span>
+                <span className="block">de Outubro</span>
+                <span className="block">de 2025</span>
               </p>
             </div>
 
@@ -29,8 +29,9 @@ export function CourseInfoSection() {
               <Clock className="w-8 h-8 text-[#F4CE71] mx-auto mb-3" />
               <h3 className="font-bold text-white mb-3">Horário</h3>
               <p className="text-gray-300 text-sm leading-relaxed">
-                {EVENT_DETAILS.time.replace(' ', '\n')}
-                <span className="block">{EVENT_DETAILS.duration}</span>
+                <span className="block font-semibold text-base">17:00 às 18:30</span>
+                <span className="block">(Brasília)</span>
+                <span className="block text-xs mt-1">1h30</span>
               </p>
             </div>
 

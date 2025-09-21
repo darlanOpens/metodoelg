@@ -21,9 +21,7 @@ interface FormData {
   nome: string
   email: string
   telefone: string
-  empresa: string
   segmento: string
-  site: string
 }
 
 interface UtmData {
@@ -44,15 +42,6 @@ const formatPhoneNumber = (value: string) => {
   }
 }
 
-// Adiciona "https://" a uma URL se não tiver protocolo
-const normalizeUrl = (url: string): string => {
-  if (!url) return ""
-  if (!/^https?:\/\//i.test(url)) {
-    return `https://${url}`
-  }
-  return url
-}
-
 export function LeadForm() {
   const router = useRouter()
   // Estados
@@ -60,9 +49,7 @@ export function LeadForm() {
     nome: "",
     email: "",
     telefone: "",
-    empresa: "",
     segmento: "",
-    site: "",
   })
   const [utmData, setUtmData] = useState<UtmData>({
     utm_source: "",
@@ -152,16 +139,9 @@ export function LeadForm() {
     setFormErrors({})
     setIsSubmitting(true)
 
-    // Normalizar URL do site - adicionar https:// se não tiver protocolo
-    let normalizedSite = formData.site.trim()
-    if (normalizedSite && !normalizedSite.match(/^https?:\/\//)) {
-      normalizedSite = `https://${normalizedSite}`
-    }
-
     // Estrutura de dados para o Webhook
     const formDataForN8N = {
       ...formData,
-      site: normalizedSite, // Usar a versão normalizada do site
       ...utmData,
       telefone: cleanPhone,
     }
@@ -283,37 +263,6 @@ export function LeadForm() {
             )}
           </div>
 
-          {/* Empresa e Site */}
-          <div className="grid md:grid-cols-2 gap-4">
-            <div className="space-y-2">
-              <Label htmlFor="empresa" className="text-gray-300">
-                Nome da sua empresa *
-              </Label>
-              <Input
-                id="empresa"
-                type="text"
-                placeholder="Nome da sua empresa"
-                value={formData.empresa}
-                onChange={handleInputChange}
-                required
-                className="bg-[#2A2A2A] border-gray-600 text-white placeholder:text-gray-400 focus:border-[#F9A826] focus:ring-[#F9A826]"
-              />
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="site" className="text-gray-300">
-                Site da sua empresa
-              </Label>
-              <Input
-                id="site"
-                type="text"
-                placeholder="https://suaempresa.com.br"
-                value={formData.site}
-                onChange={handleInputChange}
-                className="bg-[#2A2A2A] border-gray-600 text-white placeholder:text-gray-400 focus:border-[#F9A826] focus:ring-[#F9A826]"
-              />
-            </div>
-          </div>
-
           {/* Segmento */}
           <div className="space-y-2">
             <Label htmlFor="segmento" className="text-gray-300">
@@ -364,4 +313,4 @@ export function LeadForm() {
       </CardContent>
     </Card>
   )
-} 
+}
