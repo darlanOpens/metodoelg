@@ -55,7 +55,7 @@ Clientes somem em silêncio, oportunidades de recompra ficam na mesa e o time re
 
 
 ## Sobre o Método ELG
-**Subtítulo:** Lucro recorrente guiado pela experiência do cliente
+**Subtítulo:** Enquanto você insiste no Funil Tradicional, seus concorrentes já lucram com o Flywheel.
 
 O ELG coloca o cliente no centro do crescimento: retenção, recompra e indicação. Em vez de buscar “mais do mesmo”, você constrói processos que aumentam margem e previsibilidade a partir da base que já existe.
 

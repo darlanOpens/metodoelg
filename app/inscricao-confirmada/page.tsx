@@ -29,7 +29,7 @@ export default function ConfirmationPage() {
               </h1>
               
               <p className="text-xl text-gray-300 mb-8">
-                Sua vaga para a aula gratuita <strong className="text-[#F9A826]">"Construindo uma Máquina de Lucro Recorrente"</strong> está garantida!
+                Sua vaga para a aula gratuita <strong className="text-[#F9A826]">"Do Funil ao Flywheel"</strong> está garantida!
               </p>
 
               {/* Alerta Principal - Próximo Passo */}

@@ -13,13 +13,13 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Do Funil ao Flywheel — Método ELG",
   description:
-    "IA + processos simples para ativar quem já é seu cliente, reduzir perdas silenciosas e criar previsibilidade de caixa.",
+    "Enquanto você insiste no Funil Tradicional, seus concorrentes já lucram com o Flywheel.",
   keywords: "método elg, douglas conrad, crescimento empresarial, retenção de clientes, aumento de receita, experience-led growth",
   authors: [{ name: "Douglas Conrad" }],
   openGraph: {
     title: "Do Funil ao Flywheel — Método ELG",
     description:
-      "IA + processos simples para ativar quem já é seu cliente, reduzir perdas silenciosas e criar previsibilidade de caixa.",
+      "Enquanto você insiste no Funil Tradicional, seus concorrentes já lucram com o Flywheel.",
     type: "website",
     locale: "pt_BR",
   },
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Do Funil ao Flywheel — Método ELG",
     description:
-      "IA + processos simples para ativar quem já é seu cliente, reduzir perdas silenciosas e criar previsibilidade de caixa.",
+      "Enquanto você insiste no Funil Tradicional, seus concorrentes já lucram com o Flywheel.",
   },
 }
 
